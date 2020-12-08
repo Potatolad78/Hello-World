@@ -6,11 +6,15 @@ public class PushitBase
    String name;
    Scanner userInput = new Scanner(System.in);
    String movement;
+   boolean bannanaLocation = true;
+   boolean bannana = false;
    boolean gameState = true;
+   boolean templeLock = false;
    boolean knife =false;
    boolean rope = false;
    boolean knifeLocation = true;
    boolean area1Vietnamese = true;
+   boolean jungleTempleDoor = false;
   public void pickupcommand()
   {
   }
@@ -63,6 +67,16 @@ public class PushitBase
                   knife = true;
                   knifeLocation = false;
                }
+               if(bannana = true)
+               {
+                  if(movement.equals("Use Bannana"))
+                  {
+                  System.out.println("One of the monkeys come close and trade you a circular object for the bannana");
+                  bannana = false;
+                  templeLock = true;
+                  break;
+                  }
+               }
                switch (movement.toUpperCase())
                {
                   case "LEFT":
@@ -77,6 +91,7 @@ public class PushitBase
                   }
                   case "UP":
                   {
+                     System.out.println("You cant go that way.");
                      room = 2;
                      break;
                   }
@@ -92,9 +107,24 @@ public class PushitBase
             case 3:
             {
                System.out.println("There is a large jungle temple that seems to have a circular lock ");
+               if (bannanaLocation == true)
+               {
                System.out.println("There is a single bannanna in front of the temple");
+               }
                System.out.println("To the left there is more jungle and below you there is a rice paddy");
                String movement = userInput.nextLine();
+               if (movement.equals("Pickup Bannana"))
+               {
+               System.out.println("You pick up the bannana and put it into your pocket");
+               bannanaLocation = false;
+               bannana = true;
+               }
+               if (movement.equals("Place Key"))
+               {
+               System.out.println("The key fits in the lock perfectly. You hear very loud sounds as the door creaks down");
+               jungleTempleDoor = true;
+               }
+               
                switch (movement.toUpperCase())
                {
                case "LEFT":
@@ -110,6 +140,12 @@ public class PushitBase
                }
                case "UP":
                {
+                  if (jungleTempleDoor = true)
+                  {
+                   area = 2;
+                   room = 1;
+                   break;
+                  }
                   System.out.println("You cant go that way");
                   room = 3;
                   break;
@@ -421,15 +457,63 @@ public class PushitBase
 
    }
    }
+   public void roomCheck2()
+   {
+   switch(room)
+   {
+   case 1:
+      {
+      System.out.println(" You enter the temple and its very dark. You take a torch off of the wall to light your way");
+      System.out.println(" You cant be sure where you are going, so tread lightly"); 
+      String movement = userInput.nextLine();
+      switch (movement.toUpperCase())
+       {
+       case "LEFT":
+       {
+         room = 8;
+         break;
+       }
+       case "RIGHT":
+       {
+         System.out.println("You cant go that way");
+         room = 1;
+         break;
+       }
+         case "UP":
+       { 
+           room = 2;
+           break;
+       }
+           case "DOWN":
+       {
+           area = 1;
+           room = 3;
+           break;
+       }
+       }
+               break;   
+   }
+   }
+   }
 
    
   public void areaRoomCheck()
   {
-   if (area == 1)
+   switch(area)
+   {
+      case 1:
          {
          roomCheck1();
+         break;
          }
-           
+      case 2:
+         {
+         roomCheck2();
+         break;
+         }
+       
+         
+   }        
   }
   public void loopAreaRoomCheck()
   {
