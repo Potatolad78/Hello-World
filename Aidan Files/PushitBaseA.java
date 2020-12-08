@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class PushitBase
+public class PushitBaseA
 {
    int area = 1;
    int room = 1;
@@ -11,6 +11,7 @@ public class PushitBase
    boolean rope = false;
    boolean knifeLocation = true;
    boolean area1Vietnamese = true;
+   boolean FFH = true;
   public void pickupcommand()
   {
   }
@@ -18,7 +19,7 @@ public class PushitBase
   {
    if(room == 1)
             {
-               System.out.println("You wake up in a downed chopper, your crew is around you bleeding out from the crash. " + name + " you need to get out of here! There is a jungle to the north, a rice paddy to the Right and a to the left there is a building");
+               System.out.println("You wake up in a downed chopper, your crew is around you bleeding out from the crash. " + name + " you need to get out of here! There is a jungle to the north and a rice paddy to the Right");
                String movement = userInput.nextLine();
                if(movement.equals("Left") || movement.equals("left"))
                {
@@ -34,8 +35,7 @@ public class PushitBase
                }
                if(movement.equals("Down") || movement.equals("down"))
                {
-                  System.out.println("You cant go that way");
-                  room = 1;
+                  room = 6;
                }
 
             }
@@ -231,6 +231,7 @@ public class PushitBase
                System.out.println("There is a bridge in front of you");
                System.out.println("You can cross it by using left or go back to the cliff with right");
                System.out.println("North and south are most surely suicide");
+               double coff = Math.random() * (100 - 1 + 1) + 1;
                String movement = userInput.nextLine();
                if(movement.equals("Left") || movement.equals("left"))
                {
@@ -243,90 +244,26 @@ public class PushitBase
                }
                if(movement.equals("Up") || movement.equals("up"))
                {
+                  if (coff <= 3)
+                  {
+                     System.out.println("You fall down the cliff and somehow survive, you walk to a small hole in the ground");
+                     System.out.println("Entering the hole you see a red door. You enter the door and there is an animatronic head laying there.");
+                     System.out.println("You suddenly wake up back at the bridge with the head in your hands which reeks of urine.");
+                     boolean FFH = true;
+                     room = 6;
+                  }
+                  if(coff > 3)
+                  {
+                  System.out.println("You should have listened. You fall to your death");
+                  gameState = false;
+                  }
+               }
+               if(movement.equals("Down") || movement.equals("down"))
+               {
                   System.out.println("You should have listened. You fall to your death Game Over");
                   gameState = false;
-
-               }
-               if(movement.equals("Down") || movement.equals("down"))
-               {
-                  System.out.println("You should have listened. You fall to your death Game Over");
-                  gameState = false;
                }
             }
-            if(room == 7)
-            {
-               System.out.println("The cliff has a very large drop off, not a survivable fall. ");
-               System.out.println("Above you is the Rice Paddy, to the left is a rope bridge connecting two sides of the cliff");
-               System.out.println("To the North there seems to be a building");
-               String movement = userInput.nextLine();
-               if(movement.equals("Left") || movement.equals("left"))
-               {
-                   System.out.println("You cant go that way");
-                   room = 7;
-               }
-               if(movement.equals("Right") || movement.equals("right"))
-               {
-                  room = 6;
-               }
-               if(movement.equals("Up") || movement.equals("up"))
-               {
-                  room = 8;
-               }
-               if(movement.equals("Down") || movement.equals("down"))
-               {
-                  System.out.println("You cant go that way");
-                  room = 7;
-               }
-            }
-            if(room == 8)
-            {
-               System.out.println("You walk up to the building, it seems to be abandoned. The door is locked and you arent able to open it");
-               System.out.println("To the Right is the downed chopper, to the south is the cliff, to the north is a clearing.");
-               String movement = userInput.nextLine();
-               if(movement.equals("Left") || movement.equals("left"))
-               {
-                   System.out.println("You cant go that way");
-                   room = 8;
-               }
-               if(movement.equals("Right") || movement.equals("right"))
-               {
-                  room = 1;
-               }
-               if(movement.equals("Up") || movement.equals("up"))
-               {
-                  room = 9;
-               }
-               if(movement.equals("Down") || movement.equals("down"))
-               {
-                  room = 7;
-               }
-            }
-            if(room == 9)
-            {
-               System.out.println("You enter the area and everything seems serene.");
-               System.out.println("To the south is a building to the right is the Jungle.");
-               String movement = userInput.nextLine();
-               if(movement.equals("Left") || movement.equals("left"))
-               {
-                   System.out.println("You cant go that way");
-                   room = 9;
-               }
-               if(movement.equals("Right") || movement.equals("right"))
-               {
-                  room = 2;
-               }
-               if(movement.equals("Up") || movement.equals("up"))
-               {
-                  System.out.println("You cant go that way"); 
-                  room = 9;
-               }
-               if(movement.equals("Down") || movement.equals("down"))
-               {
-                  room = 8;
-               }
-            }
-
-
 
 
    }

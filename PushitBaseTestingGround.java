@@ -18,18 +18,22 @@ public class PushitBaseTestingGround
                if(movement.equals("Left") || movement.equals("left"))
                {
                  room = 8;
+                 break;
                }
                if(movement.equals("Right") || movement.equals("right"))
                {
                  room = 4;
+                 break;
                }
                if(movement.equals("Up") || movement.equals("up"))
                {
                  room = 2;
+                 break;
                }
                if(movement.equals("Down") || movement.equals("down"))
                {
                  room = 6;
+                 break;
                }
 
             

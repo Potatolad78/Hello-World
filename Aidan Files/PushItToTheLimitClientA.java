@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PushItToTheLimitClient
+public class PushItToTheLimitClientA
 {
    public static void main(String args[])
       {
@@ -13,7 +13,7 @@ public class PushItToTheLimitClient
       int area = 1; // Group of rooms
       int room = 1; // Exact area the people are in
       boolean gameState = true; //Used as a way to re run the code while having a kill switch
-      PushitBase PushitBase = new PushitBase();
-      PushitBase.loopAreaRoomCheck();
+      PushitBaseA PushitBaseA = new PushitBaseA();
+      PushitBaseA.loopAreaRoomCheck();
       }
 }   
