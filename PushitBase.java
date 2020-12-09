@@ -459,42 +459,313 @@ public class PushitBase
    }
    public void roomCheck2()
    {
-   switch(room)
-   {
-   case 1:
+      switch(room)
       {
-      System.out.println(" You enter the temple and its very dark. You take a torch off of the wall to light your way");
-      System.out.println(" You cant be sure where you are going, so tread lightly"); 
-      String movement = userInput.nextLine();
-      switch (movement.toUpperCase())
-       {
-       case "LEFT":
-       {
-         room = 8;
-         break;
-       }
-       case "RIGHT":
-       {
-         System.out.println("You cant go that way");
-         room = 1;
-         break;
-       }
-         case "UP":
-       { 
-           room = 2;
-           break;
-       }
-           case "DOWN":
-       {
-           area = 1;
-           room = 3;
-           break;
-       }
-       }
-               break;   
+      case 1:
+         {
+            System.out.println(" You enter the temple and its very dark. You take a torch off of the wall to light your way");
+            System.out.println(" You cant be sure where you are going, so tread lightly"); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 8;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 2;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 3;
+                 break;
+             }
+          }
+        break;   
+        }
+     case 2:
+         {
+            System.out.println("The temple seems the same. There are inscriptions all over the walls, you cant really make out what they say.");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("You cant go that way");
+               room = 2;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 2;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 3;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 1;
+                 break;
+             }
+          }
+        break;   
+
+         }
+      case 3:
+         {
+            System.out.println("This is a corner room. There are pots everywhere, they look to be empty as is someone already ttok their contents.");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 4;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 3;
+               break;
+             }
+               case "UP":
+             { 
+                System.out.println("You cant go that way");
+                room = 3;
+                break;
+             }
+                 case "DOWN":
+             {
+                 room = 2;
+                 break;
+             }
+          }
+        break;   
+
+         }
+       case 4:
+         {
+            System.out.println("The temple seems the same. There are inscriptions all over the walls, you cant really make out what they say.");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 5;
+               break;
+             }
+             case "RIGHT":
+             {
+               room = 3;
+               break;
+             }
+               case "UP":
+             { 
+                 System.out.println("You cant go that way");
+                 room = 4;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 System.out.println("You cant go that way");
+                 room = 4;
+                 break;
+             }
+          }
+        break;   
+
+         }
+         case 5:
+         {
+            System.out.println("5");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("You cant go that way");
+               room = 5;
+               break;
+             }
+             case "RIGHT":
+             {
+               room = 4;
+               break;
+             }
+               case "UP":
+             { 
+                 System.out.println("You cant go that way");
+                 room = 5;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 6;
+                 break;
+             }
+          }
+        break;   
+
+         }
+        case 6:
+         {
+            System.out.println("6");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("You cant go that way");
+               room = 6;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 6;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 5;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 7;
+                 break;
+             }
+          }
+        break;   
+
+         }
+        case 7:
+         {
+            System.out.println("7");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("You cant go that way");
+               room = 7;
+               break;
+             }
+             case "RIGHT":
+             {
+               room = 8;
+               break;
+             }
+               case "UP":
+             { 
+               room = 6;
+               break;
+             }
+                 case "DOWN":
+             {
+                 System.out.println("You cant go that way");
+                 room = 7;
+                 break;
+             }
+          }
+        break;   
+
+         }
+         case 8:
+         {
+            System.out.println("8");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 7;
+               break;
+             }
+             case "RIGHT":
+             {
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 9;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 System.out.println("You cant go that way");
+                 room = 8;
+                 break;
+             }
+          }
+        break;   
+
+         }
+         case 9:
+         {
+            System.out.println("9");
+            System.out.println("There is a large lever on the wall that is an upright position."); 
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("You cant go that way");
+               room = 9;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 9;
+               break;
+             }
+               case "UP":
+             { 
+                 System.out.println("You cant go that way");
+                 room = 9;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 8;
+                 break;
+             }
+          }
+        break;   
+
+         }
+
+
+
+
+
+
+      }
    }
-   }
-   }
+       
+
 
    
   public void areaRoomCheck()
