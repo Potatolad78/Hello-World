@@ -15,6 +15,14 @@ public class PushitBase
    boolean knifeLocation = true;
    boolean area1Vietnamese = true;
    boolean jungleTempleDoor = false;
+   boolean templeLever1 = false;
+   boolean templeLever2 = false;
+   boolean templeLever3 = false;
+   boolean templeLever4 = false;
+   boolean m1911 = false;
+   boolean m1911Location = true;
+   boolean warehouseKeyLocation = true;
+   boolean warehouseKey = false;
   public void pickupcommand()
   {
   }
@@ -496,10 +504,23 @@ public class PushitBase
      case 2:
          {
             System.out.println("The temple seems the same. There are inscriptions all over the walls, you cant really make out what they say.");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            if(templeLever1 == false)
+            {
+            System.out.println("There is a large lever on the wall that is an upright position.");
+            }
+            if(templeLever1 == true)
+            {
+            System.out.println("There is a large lever on the wall that is an downright position.");
+            } 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "PULL LEVER":
+             {
+               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+               templeLever1 = true;
+               break;
+             }
              case "LEFT":
              {
                System.out.println("You cant go that way");
@@ -561,10 +582,23 @@ public class PushitBase
        case 4:
          {
             System.out.println("The temple seems the same. There are inscriptions all over the walls, you cant really make out what they say.");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            if(templeLever2 == false)
+            {
+            System.out.println("There is a large lever on the wall that is an upright position.");
+            }
+            if(templeLever2 == true)
+            {
+            System.out.println("There is a large lever on the wall that is an downright position.");
+            } 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "PULL LEVER":
+             {
+               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+               templeLever2 = true;
+               break;
+             }
              case "LEFT":
              {
                room = 5;
@@ -593,8 +627,7 @@ public class PushitBase
          }
          case 5:
          {
-            System.out.println("5");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            System.out.println("This is a corner room. There are pots everywhere, they look to be empty as is someone already ttok their contents.");
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
@@ -626,11 +659,24 @@ public class PushitBase
          }
         case 6:
          {
-            System.out.println("6");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            System.out.println("The temple seems the same. There are inscriptions all over the walls, you cant really make out what they say.");
+            if(templeLever3 == false)
+            {
+            System.out.println("There is a large lever on the wall that is an upright position.");
+            }
+            if(templeLever3 == true)
+            {
+            System.out.println("There is a large lever on the wall that is an downright position.");
+            } 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "PULL LEVER":
+             {
+               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+               templeLever3 = true;
+               break;
+             }
              case "LEFT":
              {
                System.out.println("You cant go that way");
@@ -659,8 +705,7 @@ public class PushitBase
          }
         case 7:
          {
-            System.out.println("7");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            System.out.println("This is a corner room. There are pots everywhere, they look to be empty as is someone already ttok their contents."); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
@@ -692,11 +737,28 @@ public class PushitBase
          }
          case 8:
          {
-            System.out.println("8");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            System.out.println("The temple seems the same. There are inscriptions all over the walls, you cant really make out what they say.");
+            if(templeLever4 == false)
+            {
+            System.out.println("There is a large lever on the wall that is an upright position.");
+            }
+            if(templeLever4 == true)
+            {
+            System.out.println("There is a large lever on the wall that is an downright position.");
+            }
+            if(templeLever4 == true && templeLever3 == true && templeLever2 == true && templeLever1 == true)
+            {
+               System.out.println("You notice there is a bridge that seems to have formed and now you can enter the center room of the temple.");
+            } 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "PULL LEVER":
+             {
+               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+               templeLever4 = true;
+               break;
+             }
              case "LEFT":
              {
                room = 7;
@@ -709,8 +771,11 @@ public class PushitBase
              }
                case "UP":
              { 
-                 room = 9;
-                 break;
+                 if(templeLever4 == true && templeLever3 == true && templeLever2 == true && templeLever1 == true)
+                 {
+                  room = 9;
+                  break;
+                 }
              }
                  case "DOWN":
              {
@@ -724,11 +789,39 @@ public class PushitBase
          }
          case 9:
          {
-            System.out.println("9");
-            System.out.println("There is a large lever on the wall that is an upright position."); 
+            if(m1911Location == true || warehouseKeyLocation == true)
+            {
+            System.out.println("The room is alredy looted except for");
+            }
+            if( m1911Location == true)
+            {
+            System.out.println("a pistol with one round chambered, and ");
+            }
+            if( warehouseKeyLocation == true)
+            {
+            System.out.println("a skeleton with a key in his hand.");
+            }
+            if (warehouseKeyLocation == false && m1911Location == false)
+            {
+             System.out.println("The room is empty");
+            }
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "PICKUP KEY":
+             {
+               System.out.println("You pick up a key which almost looks like a normal house key");
+               warehouseKeyLocation = false;
+               warehouseKey = true;
+               break;
+             }
+             case "PICKUP PISTOL":
+             {
+               System.out.println("You pick up the pistol, hopefully you dont have to use it.");
+               m1911Location = false;
+               m1911 = true;
+               break;
+             }
              case "LEFT":
              {
                System.out.println("You cant go that way");
@@ -756,11 +849,6 @@ public class PushitBase
         break;   
 
          }
-
-
-
-
-
 
       }
    }
