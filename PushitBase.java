@@ -6,11 +6,13 @@ public class PushitBase
    String name;
    Scanner userInput = new Scanner(System.in);
    String movement;
+   boolean newGame = true;
    boolean bannanaLocation = true;
    boolean bannana = false;
    boolean gameState = true;
    boolean templeLock = false;
    boolean knife =false;
+   boolean ropeLocation = true;
    boolean rope = false;
    boolean knifeLocation = true;
    boolean area1Vietnamese = true;
@@ -23,6 +25,9 @@ public class PushitBase
    boolean m1911Location = true;
    boolean warehouseKeyLocation = true;
    boolean warehouseKey = false;
+   boolean warehouseState = false;
+   boolean nicksTag = false;
+   boolean nicksTagLocation = true;
   public void pickupcommand()
   {
   }
@@ -31,24 +36,45 @@ public class PushitBase
   switch (room)
    {
             case 1:
-            {
-               System.out.println("You wake up in a downed chopper, your crew is around you bleeding out from the crash. " + name + " you need to get out of here! There is a jungle to the north, a rice paddy to the Right and a to the left there is a building");
+            {  
+               if(newGame == true)
+               {
+                  System.out.println("What is your name");
+                  String name = userInput.nextLine();
+                  System.out.println("You wake up in a downed chopper, your crew is around you bleeding out from the crash. " + name +" You got to get out of here!");
+                  System.out.println("There is a jungle to the north, a rice paddy to the Right and a to the left there is a building");
+               }
+               if(newGame == false)
+               {
+                  System.out.println("Seeing the crash from another angle is horrifying. Your closest friends that went through training with you are laying there in defeat. You see one of their dogtags on the floor");
+                  System.out.println("There is a jungle to the north, a rice paddy to the Right and a to the left there is a building");
+               }
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "PICKUP DOGTAG":
+               {
+                  System.out.println("You pick up the dogtag. Nick is the name on the tag, you will miss him dearly");
+                  nicksTag = true;
+                  nicksTagLocation = false;
+                  break;
+               }
                case "LEFT": 
                {
                  room = 8;
+                 newGame= false;
                  break;
                }
                case "RIGHT":
                {
                  room = 4;
+                 newGame= false;
                  break;
                }
                case "UP":
                {
                   room = 2;
+                  newGame= false;
                   break;
                }
                case "DOWN":
@@ -173,7 +199,45 @@ public class PushitBase
               System.out.println("There is a Vietnamese Solider right in front of you");
               System.out.println("He is unarmed and runs at you in a charge and engages you in close quaters combat");
               double cos = Math.random() * (100 - 1 + 1) + 1;
-              if(knife == true)
+              if(m1911 == true)
+              {
+               if (cos <= 99)
+               {
+                 System.out.println("You shoot the man with your only bullet and kill him. Your first kill in Vietnam couldnt have been more horifying.");
+                 System.out.println("Your pistol is now useless to you");
+                 System.out.println("To the left is the downed helicopter, to the North is more Jungle, and to the South is a cliff");
+                 m1911 = false;
+                 String movement = userInput.nextLine();
+                 switch (movement.toUpperCase())
+                 {
+                 case "LEFT":
+                 {
+                     room = 1;
+                     break;
+                 }
+                 case "RIGHT":
+                 {
+                    System.out.println("You cant go that way.");
+                    room = 4;
+                    break;
+                 }
+                 case "UP":
+                 {
+                    room = 3;
+                    break;
+                 }
+                 case "DOWN":
+                 {
+                    room = 5;
+                    break;
+                 }
+                 }
+                 area1Vietnamese = false;
+                 break;
+               
+               }
+              }
+              if(knife == true && m1911 == false)
               {
                if (cos <= 90)
                {
@@ -208,7 +272,7 @@ public class PushitBase
                  break;
                }
               }
-              else if(knife == false)
+              if(knife == false && m1911 == false)
               {
                  if (cos >= 75)
                  {
@@ -400,9 +464,32 @@ public class PushitBase
             {
                System.out.println("You walk up to the building, it seems to be abandoned. The door is locked and you arent able to open it");
                System.out.println("To the Right is the downed chopper, to the south is the cliff, to the north is a clearing.");
+               if(warehouseState == true)
+               {
+                  System.out.println("The building is open. It seems to be some kind of workshop. Discarded tools line the floors");
+                  if(ropeLocation == true)
+                  {
+                     System.out.println("while there is a rope hanging from a hanging light.");
+                  }
+               }
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "OPEN BUILDING":
+               {
+                  if(warehouseKey == true)
+                  {
+                     warehouseState = true;
+                     break;
+                  }
+               }
+               case "PICKUP ROPE":
+               {
+                  System.out.println("You pickup the rope. It looks as if it was never used");
+                  ropeLocation = false;
+                  rope = true;
+                  break;
+               }
                case "LEFT":
                {
                    System.out.println("You cant go that way");
@@ -429,7 +516,7 @@ public class PushitBase
             }
             case 9:
             {
-               System.out.println("You enter the area and everything seems serene.");
+               System.out.println("You enter the area and everything seems serene. There are rocks stacked in strange fashions here. You almost feel as if you werent just shot");
                System.out.println("To the south is a building to the right is the Jungle.");
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
