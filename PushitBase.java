@@ -28,6 +28,9 @@ public class PushitBase
    boolean warehouseState = false;
    boolean nicksTag = false;
    boolean nicksTagLocation = true;
+   boolean rope5 = false;
+   boolean rope7 =false;
+   boolean area2Vietnamese = true;
   public void pickupcommand()
   {
   }
@@ -385,7 +388,9 @@ public class PushitBase
                {
                if (movement.equals("Down") || movement.equals("down"))
                   {
-                     room = 4;
+                     rope5 = true;
+                     area = 3;
+                     room = 1;
                      break;
                   }
                }
@@ -453,9 +458,26 @@ public class PushitBase
                }
                case "DOWN":
                {
-                  System.out.println("You cant go that way");
-                  room = 7;
-                  break;
+                  if (rope == false)
+               {
+                  if (movement.equals("Down") || movement.equals("down"))
+                  {
+                     System.out.println("You cant go that way.");
+                     room = 5;
+                     break;
+                  }
+               }
+               
+               if (rope == true)
+               {
+               if (movement.equals("Down") || movement.equals("down"))
+                  {
+                     rope7 = true;
+                     area = 3;
+                     room = 7;
+                     break;
+                  }
+               }
                }
                }
                break;    
@@ -939,6 +961,458 @@ public class PushitBase
 
       }
    }
+ public void roomCheck3()
+ {
+   switch(room)
+   {
+      case 1:
+         {
+            if(rope5 == true)
+            {
+            System.out.println("You tied the rope to the rock and used it to climb down the cliff");
+            }
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("Thats to dangerous!");
+               room = 1;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You walk off the cliff and fall to your death.");
+               System.out.println("GAME OVER");
+               gameState = false;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 2;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 5;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 2:
+         {
+            if (area2Vietnamese == true)
+            {
+            System.out.println("The two men in front of you are Vietnamese soliders");
+            double cos2 = Math.random() * (100 - 1 + 1) + 1;
+            if (m1911 = true)
+            {
+               if(cos2 > 1)
+               {
+                  System.out.println("You convince the men that you have a fully loaded M1911 and if they dont scatter they will be killed.");
+                  System.out.println("They scatter off, leaving nothing behind");
+                  area2Vietnamese = false;
+               }
+               else
+               {
+                  System.out.println("While you were tleling the men the gun was fully loaded they charged you and took your gun.");
+                  System.out.println("GAME OVER");
+                  gameState = false;
+               }
+            }
+            if (m1911 == false && knife == true)
+            {
+               if(cos2 > 50)
+               {
+                  System.out.println("You kill both men with your knife. Luck was on your side today considering all they had to do was turn around");
+                  area2Vietnamese = false;
+               }
+               else
+               {
+                  System.out.println("While you attacked with a knife one of the men dissarmed you.");
+                  System.out.println("GAME OVER");
+                  gameState = false;
+               }
+
+            }
+            if(m1911 == false && knife == false)
+            {
+               if(cos2 > 90)
+               {
+                  System.out.println("You band the two mens heas together and they pass out. I thought that only worked in movies.");
+                  area2Vietnamese = false;
+               }
+               else
+               {
+                  System.out.println("You were a fool and tried to take two men in a fight at the same time and were overwhelemed and killed.");
+                  System.out.println("GAME OVER");
+                  gameState = false;
+               }
+            }
+            }
+            System.out.println("The area is clear and there is nothing to do ");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("Thats to dangerous!");
+               room = 2;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You walk off the cliff and fall to your death.");
+               System.out.println("GAME OVER");
+               gameState = false;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 3;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 1;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 3:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("Thats to dangerous!");
+               room = 3;
+               break;
+             }
+             case "RIGHT":
+             {
+               room = 4;
+               break;
+             }
+               case "UP":
+             { 
+                 System.out.println("Thats to dangerous!"); 
+                 room = 3;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 2;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 4:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 3;
+               break;
+             }
+             case "RIGHT":
+             {
+               room = 5;
+               break;
+             }
+               case "UP":
+             { 
+                 System.out.println("Thats to dangerous!");
+                 room = 4;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 System.out.println("You walk off the cliff and fall to your death.");
+                 System.out.println("GAME OVER");
+                 gameState = false;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 5:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 8;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 System.out.println("Thats to dangerous!");
+                 room = 5;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 6;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 6:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               System.out.println("You walk off the cliff and fall to your death.");
+               System.out.println("GAME OVER");
+               gameState = false;
+               break;
+
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 8;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 6;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 room = 7;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 7:
+         {
+            if(rope7 == true)
+            {
+            System.out.println("You tied the rope to the rock and used it to climb down the cliff");
+            }
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("The area seems like a deserted camp. There isnt much here except an army issued hat"); 
+            System.out.println("To your left there is a large drop off and to your right there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there is a well");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+                 System.out.println("You walk off the cliff and fall to your death.");
+                 System.out.println("GAME OVER");
+                 gameState = false;
+                 break;
+
+             }
+             case "RIGHT":
+             {
+               System.out.println("Thats to dangerous!");
+               room = 7;
+               break;
+             }
+               case "UP":
+             { 
+                room = 6;
+                break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 7;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 8:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 8;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 2;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 3;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 9:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 8;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 2;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 3;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 10:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 8;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 2;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 3;
+                 break;
+             }
+          }
+        break; 
+         }
+         case 11:
+         {
+            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
+            System.out.println("The land around you is very different than up above. It is very arid");
+            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
+            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
+            System.out.println("Up ahead there are two men chatting");
+            String movement = userInput.nextLine();
+            switch (movement.toUpperCase())
+             {
+             case "LEFT":
+             {
+               room = 8;
+               break;
+             }
+             case "RIGHT":
+             {
+               System.out.println("You cant go that way");
+               room = 1;
+               break;
+             }
+               case "UP":
+             { 
+                 room = 2;
+                 break;
+             }
+                 case "DOWN":
+             {
+                 area = 1;
+                 room = 3;
+                 break;
+             }
+          }
+        break; 
+         }
+
+   }
+ }
        
 
 
@@ -955,6 +1429,11 @@ public class PushitBase
       case 2:
          {
          roomCheck2();
+         break;
+         }
+      case 3:
+         {
+         roomCheck3();
          break;
          }
        
