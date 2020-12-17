@@ -1056,7 +1056,9 @@ public class PushitBase
                }
             }
             }
-            System.out.println("The area is clear and there is nothing to do ");
+            System.out.println("North there is what seems to be an Oasis, to the south is the radio and camp");
+            System.out.println("To the right there is a cliff and to the left is more desert.");
+            System.out.println("The area is clear and there is nothing to do.");
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
@@ -1088,11 +1090,9 @@ public class PushitBase
          }
          case 3:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("There is an Oasis. You see U.S army gear thrown around.");
+            System.out.println("You aren't sure if its really there or if you are seeing a mirage.");
+            System.out.println("To the right is a large mountain peak and below you is the area where the men were."); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
@@ -1123,11 +1123,11 @@ public class PushitBase
          }
          case 4:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("You reach the peak of the mountain");
+            System.out.println("Up here you are able to reflect. Seeing your friends perish around you and you wonder what they carried with themselves to the grave.");
+            System.out.println("The air here is very light"); 
+            System.out.println("To the left is the oasis and to the right is an empty desert.");
+            System.out.println("Below you is a empty hole");
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
@@ -1159,17 +1159,15 @@ public class PushitBase
          }
          case 5:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("You arive in an empty desert. There really is nothing here");
+            System.out.println("To the left is the mountain peak.To the right is more desert.");
+            System.out.println("Below you is a well"); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
              case "LEFT":
              {
-               room = 8;
+               room = 4;
                break;
              }
              case "RIGHT":
@@ -1194,11 +1192,9 @@ public class PushitBase
          }
          case 6:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("There is a well that hasnt been touched in years.");
+            System.out.println("Below you is a camp and above you is the desert.");
+            System.out.println("To the right is a U.S base. Below you is a camp"); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
