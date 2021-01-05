@@ -1268,34 +1268,31 @@ public class PushitBase
          }
          case 8:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("You come to a military checkpoint that has been abandoned.");
+            System.out.println("To the left is the well and to the right there seems to be a base");
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
              case "LEFT":
              {
-               room = 8;
+               room = 6;
                break;
              }
              case "RIGHT":
              {
-               System.out.println("You cant go that way");
-               room = 1;
+               room = 9;
                break;
              }
                case "UP":
              { 
-                 room = 2;
-                 break;
+               System.out.println("You cant go that way");
+               room = 8;
+               break;
              }
                  case "DOWN":
              {
-                 area = 1;
-                 room = 3;
+                 System.out.println("You cant go that way");
+                 room = 8 ;
                  break;
              }
           }
@@ -1303,11 +1300,9 @@ public class PushitBase
          }
          case 9:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("You come to the base and see troops around.");
+            System.out.println("They welcome you as you are in uniform, Where have you been one of the men asks.");
+            System.out.println("Up is the commanders room and to the left is the enterance."); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
@@ -1319,18 +1314,18 @@ public class PushitBase
              case "RIGHT":
              {
                System.out.println("You cant go that way");
-               room = 1;
+               room = 9;
                break;
              }
                case "UP":
              { 
-                 room = 2;
+                 room = 10;
                  break;
              }
                  case "DOWN":
              {
-                 area = 1;
-                 room = 3;
+                 System.out.println("You cant go that way");
+                 room = 9;
                  break;
              }
           }
@@ -1338,34 +1333,45 @@ public class PushitBase
          }
          case 10:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("The commander talks to you and asks you who you are.");
+            System.out.println("My name is " + name +" I was in the shot down chopper");
+            System.out.println("How can you prove it?"); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "USE DOGTAGS":
+             {
+               if(nicksTag == true)
+               {
+               System.out.println("Here are Nicks tags");
+               System.out.println("Oh, you are truly from the crash");
+               System.out.println("The man puts you in the field hospital and you reajoin the platton soon after.");
+               gameState = false;
+               break;
+               }
+               break;
+             }
              case "LEFT":
              {
-               room = 8;
+               System.out.println("You cant go that way");
+               room = 10;
                break;
              }
              case "RIGHT":
              {
                System.out.println("You cant go that way");
-               room = 1;
+               room = 10;
                break;
              }
                case "UP":
              { 
-                 room = 2;
-                 break;
+               System.out.println("You cant go that way");
+               room = 10;
+               break;
              }
                  case "DOWN":
              {
-                 area = 1;
-                 room = 3;
+                 room = 9;
                  break;
              }
           }
