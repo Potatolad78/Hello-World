@@ -626,9 +626,18 @@ public class PushitBase
              {
              case "PULL LEVER":
              {
-               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
-               templeLever1 = true;
-               break;
+               if(templeLever1 == false)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever1 = true;
+                  break;
+               }
+               if(templeLever1 == true)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever1 = false;
+                  break;
+               }
              }
              case "LEFT":
              {
@@ -704,9 +713,18 @@ public class PushitBase
              {
              case "PULL LEVER":
              {
-               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
-               templeLever2 = true;
-               break;
+              if(templeLever2 == false)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever2 = true;
+                  break;
+               }
+               if(templeLever2 == true)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever2 = false;
+                  break;
+                }
              }
              case "LEFT":
              {
@@ -782,9 +800,18 @@ public class PushitBase
              {
              case "PULL LEVER":
              {
-               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
-               templeLever3 = true;
-               break;
+               if(templeLever3 == false)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever3 = true;
+                  break;
+               }
+               if(templeLever3 == true)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever3 = false;
+                  break;
+               }
              }
              case "LEFT":
              {
@@ -864,9 +891,18 @@ public class PushitBase
              {
              case "PULL LEVER":
              {
-               System.out.println("The lever gets pulled, a sound creaks but nothing happens");
-               templeLever4 = true;
-               break;
+               if(templeLever4 == false)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever4 = true;
+                  break;
+               }
+               if(templeLever4 == true)
+               {
+                  System.out.println("The lever gets pulled, a sound creaks but nothing happens");
+                  templeLever4 = false;
+                  break;
+               }
              }
              case "LEFT":
              {
@@ -1070,12 +1106,20 @@ public class PushitBase
              }
              case "RIGHT":
              {
-               System.out.println("You walk off the cliff and fall to your death.");
-               System.out.println("GAME OVER");
-               gameState = false;
-               break;
+               if(templeLever1 == true || templeLever2 == true || templeLever3 == true || templeLever4 == true)
+               {
+                  System.out.println("You walk off the cliff and fall to your death.");
+                  System.out.println("GAME OVER");
+                  gameState = false;
+                  break;
+               }
+               if(templeLever1 == false && templeLever2 == false && templeLever3 == false && templeLever4 == false)
+               {
+                  room = 11;
+                  break;
+               }
              }
-               case "UP":
+             case "UP":
              { 
                  room = 3;
                  break;
@@ -1389,24 +1433,24 @@ public class PushitBase
              {
              case "LEFT":
              {
-               room = 8;
+               room = 2;
                break;
              }
              case "RIGHT":
              {
-               System.out.println("You cant go that way");
-               room = 1;
+               room = 6;
                break;
              }
                case "UP":
              { 
-                 room = 2;
+                 System.out.println("You cant go that way.");
+                 room = 11;
                  break;
              }
                  case "DOWN":
              {
-                 area = 1;
-                 room = 3;
+                 System.out.println("You cant go that way.");
+                 room = 11;
                  break;
              }
           }
