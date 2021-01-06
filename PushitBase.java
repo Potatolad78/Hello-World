@@ -116,6 +116,11 @@ public class PushitBase
                }
                switch (movement.toUpperCase())
                {
+                  case "READ LETTER":
+                  {
+                     System.out.println("The letter reads as follows It seems to me like the monkeys of the area are able to comprehend the ability to trade. I will give them a bannana today - Dr.Aidan");
+                     break;
+                  }
                   case "LEFT":
                   {
                      room = 9;
@@ -1390,6 +1395,8 @@ public class PushitBase
                System.out.println("Here are Nicks tags");
                System.out.println("Oh, you are truly from the crash");
                System.out.println("The man puts you in the field hospital and you reajoin the platton soon after.");
+               System.out.println("Thank you for playing my short game!");
+               System.out.println("YOU WIN");
                gameState = false;
                break;
                }
@@ -1423,11 +1430,9 @@ public class PushitBase
          }
          case 11:
          {
-            System.out.println("You tied the rope to the rock and used it to c;ob dpwn the cliff");
-            System.out.println("The land around you is very different than up above. It is very arid");
-            System.out.println("Around you there are some crates and a radio playing Magic Carpet Ride by Steppenwolf"); 
-            System.out.println("To your right there is a large drop off and to your left there is just desert as far as the eye can see.");
-            System.out.println("Up ahead there are two men chatting");
+            System.out.println("You walk onto the bridge, there are no visible reasons to be here.");
+            System.out.println("There is a sign that says thank you for playing! The creator of the game is Drew Rigby.");
+            System.out.println("To your left is where the encounter was and to your right is a well"); 
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
