@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.*;
 public class PushitBase
 {
    int area = 1;
@@ -31,8 +32,33 @@ public class PushitBase
    boolean rope5 = false;
    boolean rope7 =false;
    boolean area2Vietnamese = true;
-  public void pickupcommand()
+  public void save()
   {
+   try
+   {
+   FileInputStream fileIn = new FileInputStream("Save.txt");
+   Scanner fileScanner = new Scanner(fileIn);
+   String firstLine = fileScanner.nextLine();
+   fileScanner.close();
+   }
+   catch(FileNotFoundException E)
+   {
+      
+   }
+  }
+  public void load()
+  {
+  try
+      {
+      PrintStream FileOut= new PrintStream("Save.txt");
+      FileOut.println("Hello World");
+      FileOut.close();
+      }
+      catch(FileNotFoundException E)
+      {
+      
+      }
+
   }
   public void roomCheck1()
   {
