@@ -32,13 +32,41 @@ public class PushitBase
    boolean rope5 = false;
    boolean rope7 =false;
    boolean area2Vietnamese = true;
-  public void save()
+  public void load()
   {
    try
    {
    FileInputStream fileIn = new FileInputStream("Save.txt");
    Scanner fileScanner = new Scanner(fileIn);
-   String firstLine = fileScanner.nextLine();
+   knife = fileScanner.nextBoolean();
+   fileScanner.nextLine();
+   name = fileScanner.nextLine();
+   newGame = fileScanner.nextBoolean();
+   bannanaLocation = fileScanner.nextBoolean();
+   bannana = fileScanner.nextBoolean();
+   gameState = fileScanner.nextBoolean();
+   templeLock = fileScanner.nextBoolean();
+   ropeLocation = fileScanner.nextBoolean();
+   rope = fileScanner.nextBoolean();
+   knifeLocation = fileScanner.nextBoolean();
+   area1Vietnamese = fileScanner.nextBoolean();
+   jungleTempleDoor = fileScanner.nextBoolean();
+   templeLever1 = fileScanner.nextBoolean();
+   templeLever2 = fileScanner.nextBoolean();
+   templeLever3 = fileScanner.nextBoolean();
+   templeLever4 = fileScanner.nextBoolean();
+   m1911 = fileScanner.nextBoolean();
+   m1911Location = fileScanner.nextBoolean();
+   warehouseKeyLocation= fileScanner.nextBoolean();
+   warehouseKey = fileScanner.nextBoolean();
+   warehouseState = fileScanner.nextBoolean();
+   nicksTag = fileScanner.nextBoolean ();
+   nicksTagLocation = fileScanner.nextBoolean();
+   rope5 = fileScanner.nextBoolean();
+   rope7 = fileScanner.nextBoolean();
+   area2Vietnamese = fileScanner.nextBoolean();
+   area = fileScanner.nextInt();
+   room = fileScanner.nextInt(); 
    fileScanner.close();
    }
    catch(FileNotFoundException E)
@@ -46,12 +74,41 @@ public class PushitBase
       
    }
   }
-  public void load()
+  public void save()
   {
   try
       {
       PrintStream FileOut= new PrintStream("Save.txt");
-      FileOut.println("Hello World");
+      FileOut.println(knife);
+      FileOut.println(name);
+      FileOut.println(newGame);
+      FileOut.println(bannanaLocation);
+      FileOut.println(bannana);
+      FileOut.println(gameState);
+      FileOut.println(templeLock);
+      FileOut.println(ropeLocation);
+      FileOut.println(rope);
+      FileOut.println(knifeLocation);
+      FileOut.println(area1Vietnamese);
+      FileOut.println(jungleTempleDoor);
+      FileOut.println(templeLever1);
+      FileOut.println(templeLever2);
+      FileOut.println(templeLever3);
+      FileOut.println(templeLever4);
+      FileOut.println(m1911);
+      FileOut.println(m1911Location);
+      FileOut.println(warehouseKeyLocation);
+      FileOut.println(warehouseKey);
+      FileOut.println(warehouseState);
+      FileOut.println(nicksTag);
+      FileOut.println(nicksTagLocation);
+      FileOut.println(rope5);
+      FileOut.println(rope7);
+      FileOut.println(area2Vietnamese);
+      FileOut.println(area);
+      FileOut.println(room);
+      FileOut.println();
+      FileOut.println();
       FileOut.close();
       }
       catch(FileNotFoundException E)
@@ -81,6 +138,21 @@ public class PushitBase
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "PICKUP DOGTAG":
                {
                   System.out.println("You pick up the dogtag. Nick is the name on the tag, you will miss him dearly");
@@ -142,6 +214,21 @@ public class PushitBase
                }
                switch (movement.toUpperCase())
                {
+                  case "SAVE":
+                  {
+                     save();
+                     break;
+                  }
+                  case "LOAD":
+                  {
+                     load();
+                     break;
+                  }
+                  case "EXIT GAME":
+                  {
+                     gameState = false;
+                     break;
+                  }
                   case "READ LETTER":
                   {
                      System.out.println("The letter reads as follows It seems to me like the monkeys of the area are able to comprehend the ability to trade. I will give them a bannana today - Dr.Aidan");
@@ -195,6 +282,21 @@ public class PushitBase
                
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "LEFT":
                {
                    room = 2;
@@ -244,6 +346,21 @@ public class PushitBase
                  String movement = userInput.nextLine();
                  switch (movement.toUpperCase())
                  {
+                 case "SAVE":
+                  {
+                     save();
+                     break;
+                  }
+                 case "LOAD":
+                  {
+                    load();
+                    break;
+                  }
+                 case "EXIT GAME":
+                  {
+                     gameState = false;
+                     break;
+                  }
                  case "LEFT":
                  {
                      room = 1;
@@ -280,6 +397,21 @@ public class PushitBase
                  String movement = userInput.nextLine();
                  switch (movement.toUpperCase())
                  {
+                 case "SAVE":
+                  {
+                     save();
+                     break;
+                  }
+                 case "LOAD":
+                  {
+                    load();
+                    break;
+                  }
+                 case "EXIT GAME":
+                  {
+                     gameState = false;
+                     break;
+                  }
                  case "LEFT":
                  {
                      room = 1;
@@ -315,6 +447,21 @@ public class PushitBase
                     String movement = userInput.nextLine();
                     switch (movement.toUpperCase())
                     {
+                    case "SAVE":
+                     {
+                        save();
+                        break;
+                     }
+                     case "LOAD":
+                     {
+                       load();
+                       break;
+                     }
+                     case "EXIT GAME":
+                     {
+                        gameState = false;
+                        break;
+                     }
                     case "LEFT":
                     {
                         room = 1;
@@ -355,6 +502,21 @@ public class PushitBase
                  String movement = userInput.nextLine();
                  switch (movement.toUpperCase())
                  {
+                 case "SAVE":
+                  {
+                     save();
+                     break;
+                  }
+                 case "LOAD":
+                  {
+                    load();
+                    break;
+                  }
+                 case "EXIT GAME":
+                  {
+                     gameState = false;
+                     break;
+                  }
                  case "LEFT":
                  {
                      room = 1;
@@ -388,6 +550,21 @@ public class PushitBase
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "LEFT":
                {
                    room = 6;
@@ -436,6 +613,21 @@ public class PushitBase
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "LEFT":
                {
                    room = 7;
@@ -471,6 +663,21 @@ public class PushitBase
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "LEFT":
                {
                    System.out.println("You cant go that way");
@@ -528,6 +735,21 @@ public class PushitBase
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "OPEN BUILDING":
                {
                   if(warehouseKey == true)
@@ -574,6 +796,21 @@ public class PushitBase
                String movement = userInput.nextLine();
                switch (movement.toUpperCase())
                {
+               case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
                case "LEFT":
                {
                    System.out.println("You cant go that way");
@@ -616,6 +853,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+             case "LOAD":
+               {
+                 load();
+                 break;
+               }
+             case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 8;
@@ -655,6 +907,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "PULL LEVER":
              {
                if(templeLever1 == false)
@@ -702,6 +969,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 4;
@@ -742,6 +1024,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "PULL LEVER":
              {
               if(templeLever2 == false)
@@ -789,6 +1086,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                System.out.println("You cant go that way");
@@ -829,6 +1141,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "PULL LEVER":
              {
                if(templeLever3 == false)
@@ -876,6 +1203,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                System.out.println("You cant go that way");
@@ -920,6 +1262,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "PULL LEVER":
              {
                if(templeLever4 == false)
@@ -984,6 +1341,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "PICKUP KEY":
              {
                System.out.println("You pick up a key which almost looks like a normal house key");
@@ -1045,6 +1417,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                System.out.println("Thats to dangerous!");
@@ -1074,6 +1461,7 @@ public class PushitBase
          }
          case 2:
          {
+         
             if (area2Vietnamese == true)
             {
             System.out.println("The two men in front of you are Vietnamese soliders");
@@ -1129,6 +1517,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                System.out.println("Thats to dangerous!");
@@ -1171,6 +1574,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                System.out.println("Thats to dangerous!");
@@ -1206,6 +1624,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 3;
@@ -1240,6 +1673,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 4;
@@ -1273,6 +1721,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                System.out.println("You walk off the cliff and fall to your death.");
@@ -1313,6 +1776,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                  System.out.println("You walk off the cliff and fall to your death.");
@@ -1348,6 +1826,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 6;
@@ -1381,6 +1874,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 8;
@@ -1414,6 +1922,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "USE DOGTAGS":
              {
                if(nicksTag == true)
@@ -1462,6 +1985,21 @@ public class PushitBase
             String movement = userInput.nextLine();
             switch (movement.toUpperCase())
              {
+             case "SAVE":
+               {
+                  save();
+                  break;
+               }
+               case "LOAD":
+               {
+                 load();
+                 break;
+               }
+               case "EXIT GAME":
+               {
+                  gameState = false;
+                  break;
+               }
              case "LEFT":
              {
                room = 2;
